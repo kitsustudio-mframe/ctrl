@@ -23,6 +23,8 @@
  */
 
 //-----------------------------------------------------------------------------------------
+using io::InputStream;
+using io::OutputStream;
 
 //-----------------------------------------------------------------------------------------
 using ctrl::SerialPort;
@@ -92,12 +94,12 @@ uint32_t SerialPort::getBaudrate(void) {
 
 
 //-----------------------------------------------------------------------------------------
-lang::OutputStream& SerialPort::getOutputStream(void){
+OutputStream& SerialPort::getOutputStream(void){
   return this->mSerialPortOutputStream;
 }
 
 //-----------------------------------------------------------------------------------------
-lang::InputStream& SerialPort::getInputStream(void){
+InputStream& SerialPort::getInputStream(void){
   return this->mSerialPortInputStream;
 }
 

@@ -4,8 +4,8 @@
  *
  * SPDX-License-Identifier: MIT
  */
-#ifndef CTRL_9791505C_A013_4AE8_9EF4_F082A616F700
-#define CTRL_9791505C_A013_4AE8_9EF4_F082A616F700
+#ifndef MFRAME_9791505C_A013_4AE8_9EF4_F082A616F700
+#define MFRAME_9791505C_A013_4AE8_9EF4_F082A616F700
 
 /* ****************************************************************************************
  * Include
@@ -143,4 +143,4 @@ class ctrl::Ammeter : public ctrl::Voltmeter {
  * End of file
  */
 
-#endif /* CTRL_9791505C_A013_4AE8_9EF4_F082A616F700 */
+#endif /* MFRAME_9791505C_A013_4AE8_9EF4_F082A616F700 */

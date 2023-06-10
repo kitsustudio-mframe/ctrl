@@ -4,8 +4,8 @@
  *
  * SPDX-License-Identifier: MIT
  */
-#ifndef CTRL_422910B3_C829_4F28_9F7E_4A928F53DA5A
-#define CTRL_422910B3_C829_4F28_9F7E_4A928F53DA5A
+#ifndef MFRAME_422910B3_C829_4F28_9F7E_4A928F53DA5A
+#define MFRAME_422910B3_C829_4F28_9F7E_4A928F53DA5A
 
 /* ****************************************************************************************
  * Include
@@ -199,4 +199,4 @@ class ctrl::virt::GeneralPin : public lang::Object,
  * End of file
  */
 
-#endif /* CTRL_422910B3_C829_4F28_9F7E_4A928F53DA5A */
+#endif /* MFRAME_422910B3_C829_4F28_9F7E_4A928F53DA5A */

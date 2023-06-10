@@ -4,8 +4,8 @@
  *
  * SPDX-License-Identifier: MIT
  */
-#ifndef CTRL_6C0D897F_A9B6_4BE3_B3C0_796AF2C77F10
-#define CTRL_6C0D897F_A9B6_4BE3_B3C0_796AF2C77F10
+#ifndef MFRAME_6C0D897F_A9B6_4BE3_B3C0_796AF2C77F10
+#define MFRAME_6C0D897F_A9B6_4BE3_B3C0_796AF2C77F10
 
 /* ****************************************************************************************
  * Include
@@ -14,6 +14,7 @@
 //-----------------------------------------------------------------------------------------
 #include "hal/package-info.h"
 #include "lang/package-info.h"
+#include "./../io/package-info.h"
 
 //-----------------------------------------------------------------------------------------
 #include "./SerialPortInputStream.h"
@@ -30,7 +31,7 @@ namespace ctrl {
  * Class/Interface/Struct/Enum
  */
 class ctrl::SerialPort : public lang::Object,
-                         public lang::Closeable{
+                         public io::Closeable{
   /* **************************************************************************************
    * Variable <Public>
    */
@@ -120,14 +121,14 @@ class ctrl::SerialPort : public lang::Object,
    *
    * @return lang::OutputStream&
    */
-  virtual lang::OutputStream& getOutputStream(void);
+  virtual io::OutputStream& getOutputStream(void);
 
   /**
    * @brief Get the Input Stream object
    *
    * @return lang::InputStream&
    */
-  virtual lang::InputStream& getInputStream(void);
+  virtual io::InputStream& getInputStream(void);
 
   /* **************************************************************************************
    * Protected Method <Static>
@@ -154,4 +155,4 @@ class ctrl::SerialPort : public lang::Object,
  * End of file
  */
 
-#endif /* CTRL_6C0D897F_A9B6_4BE3_B3C0_796AF2C77F10 */
+#endif /* MFRAME_6C0D897F_A9B6_4BE3_B3C0_796AF2C77F10 */

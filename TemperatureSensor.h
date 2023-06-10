@@ -4,8 +4,8 @@
  *
  * SPDX-License-Identifier: MIT
  */
-#ifndef CTRL_BE3E4DBC_AECB_44D9_B32A_7170E9B82E69
-#define CTRL_BE3E4DBC_AECB_44D9_B32A_7170E9B82E69
+#ifndef MFRAME_BE3E4DBC_AECB_44D9_B32A_7170E9B82E69
+#define MFRAME_BE3E4DBC_AECB_44D9_B32A_7170E9B82E69
 
 /* ****************************************************************************************
  * Include
@@ -43,4 +43,4 @@ struct ctrl::TemperatureSensor : public virtual lang::Interface {
  * End of file
  */
 
-#endif /* CTRL_BE3E4DBC_AECB_44D9_B32A_7170E9B82E69 */
+#endif /* MFRAME_BE3E4DBC_AECB_44D9_B32A_7170E9B82E69 */

@@ -4,8 +4,8 @@
  *
  * SPDX-License-Identifier: MIT
  */
-#ifndef CTRL_F3E849F4_8586_4E91_A6EA_D93B8BD6D448
-#define CTRL_F3E849F4_8586_4E91_A6EA_D93B8BD6D448
+#ifndef MFRAME_F3E849F4_8586_4E91_A6EA_D93B8BD6D448
+#define MFRAME_F3E849F4_8586_4E91_A6EA_D93B8BD6D448
 
 /* ****************************************************************************************
  * Include
@@ -27,7 +27,7 @@ namespace ctrl {
 /* ****************************************************************************************
  * Class/Interface/Struct/Enum
  */
-class ctrl::SerialPortOutputStream : public lang::OutputStream,
+class ctrl::SerialPortOutputStream : public io::OutputStream,
                                      public hal::usart::EventTransfer {
   /* **************************************************************************************
    * Variable <Public>
@@ -117,4 +117,4 @@ class ctrl::SerialPortOutputStream : public lang::OutputStream,
  * End of file
  */
 
-#endif /* CTRL_F3E849F4_8586_4E91_A6EA_D93B8BD6D448 */
+#endif /* MFRAME_F3E849F4_8586_4E91_A6EA_D93B8BD6D448 */
