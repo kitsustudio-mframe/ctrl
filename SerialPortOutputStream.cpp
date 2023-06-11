@@ -8,11 +8,10 @@
 /* ****************************************************************************************
  * Include
  */
+#include "./SerialPortOutputStream.h"
 
 //-----------------------------------------------------------------------------------------
-
-//-----------------------------------------------------------------------------------------
-#include "ctrl/SerialPortOutputStream.h"
+#include "mframe.h"
 
 /* ****************************************************************************************
  * Macro
@@ -21,11 +20,9 @@
 /* ****************************************************************************************
  * Using
  */
+using mframe::ctrl::SerialPortOutputStream;
 
 //-----------------------------------------------------------------------------------------
-
-//-----------------------------------------------------------------------------------------
-using ctrl::SerialPortOutputStream;
 
 /* ****************************************************************************************
  * Variable <Static>
@@ -34,9 +31,9 @@ using ctrl::SerialPortOutputStream;
 /* ****************************************************************************************
  * Construct Method
  */
- 
+
 //-----------------------------------------------------------------------------------------
-SerialPortOutputStream::SerialPortOutputStream(hal::usart::USART& base) : mBase(base) {
+SerialPortOutputStream::SerialPortOutputStream(mframe::hal::usart::USART& base) : mBase(base) {
   this->mBase.setEventTransfer(this);
   return;
 }
@@ -58,7 +55,7 @@ SerialPortOutputStream::~SerialPortOutputStream(void) {
  */
 
 /* ****************************************************************************************
- * Public Method <Override> - hal::usart::EventTransfer
+ * Public Method <Override> - mframe::hal::usart::EventTransfer
  */
 
 //-----------------------------------------------------------------------------------------
@@ -68,14 +65,13 @@ bool SerialPortOutputStream::onUartTransfer(uint8_t& data) {
 
   int result = this->mReadBuffer->pollByte(reinterpret_cast<char&>(data));
 
-  if(result >= 0){
+  if (result >= 0) {
     ++this->mResult;
     return true;
 
-  }else{
+  } else {
     this->execute();
     return false;
-    
   }
 }
 

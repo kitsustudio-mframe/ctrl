@@ -12,23 +12,21 @@
  */
 
 //-----------------------------------------------------------------------------------------
-#include "hal/package-info.h"
-#include "lang/package-info.h"
-
-//-----------------------------------------------------------------------------------------
+#include "./../hal/usart/USART.h"
+#include "./../io/InputStream.h"
 
 /* ****************************************************************************************
  * Namespace
  */
-namespace ctrl {
+namespace mframe::ctrl {
   class SerialPortInputStream;
 }
 
 /* ****************************************************************************************
  * Class/Interface/Struct/Enum
  */
-class ctrl::SerialPortInputStream : public io::InputStream,
-                                    public hal::usart::EventReceiver {
+class mframe::ctrl::SerialPortInputStream : public mframe::io::InputStream,
+                                            public mframe::hal::usart::EventReceiver {
   /* **************************************************************************************
    * Variable <Public>
    */
@@ -41,7 +39,7 @@ class ctrl::SerialPortInputStream : public io::InputStream,
    * Variable <Private>
    */
  private:
-  hal::usart::USART& mBase;
+  mframe::hal::usart::USART& mBase;
 
   /* **************************************************************************************
    * Abstract method <Public>
@@ -60,7 +58,7 @@ class ctrl::SerialPortInputStream : public io::InputStream,
    *
    * @param base
    */
-  SerialPortInputStream(hal::usart::USART& base);
+  SerialPortInputStream(mframe::hal::usart::USART& base);
 
   /**
    * @brief Destroy the Serial Port Input Stream object
@@ -77,11 +75,10 @@ class ctrl::SerialPortInputStream : public io::InputStream,
    */
 
   /* **************************************************************************************
-   * Public Method <Override> - hal::usart::EventReceiver
+   * Public Method <Override> - mframe::hal::usart::EventReceiver
    */
-  public:
-  
-    virtual bool onUartReceiver(const uint8_t data) override;
+ public:
+  virtual bool onUartReceiver(const uint8_t data) override;
 
   /* **************************************************************************************
    * Public Method
@@ -92,7 +89,7 @@ class ctrl::SerialPortInputStream : public io::InputStream,
    */
 
   /* **************************************************************************************
-   * Protected Method <Override> - lang::InputStream
+   * Protected Method <Override> - mframe::lang::InputStream
    */
  protected:
   virtual void onReadEvent(void) override;

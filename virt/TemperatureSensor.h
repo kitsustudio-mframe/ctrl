@@ -4,31 +4,29 @@
  *
  * SPDX-License-Identifier: MIT
  */
-#ifndef MCUF_9CBF1345_9D97_4C6C_A466_2EF635815DB4
-#define MCUF_9CBF1345_9D97_4C6C_A466_2EF635815DB4
+#ifndef MFRAME_9CBF1345_9D97_4C6C_A466_2EF635815DB4
+#define MFRAME_9CBF1345_9D97_4C6C_A466_2EF635815DB4
 
 /* ****************************************************************************************
  * Include
  */
 
 //-----------------------------------------------------------------------------------------
-#include "lang/package-info.h"
-
-//-----------------------------------------------------------------------------------------
-#include "./../TemperatureSensor.h"
+#include "./../../ctrl/TemperatureSensor.h"
+#include "./../../lang/Object.h"
 
 /* ****************************************************************************************
  * Namespace
  */
-namespace ctrl::virt {
+namespace mframe::ctrl::virt {
   class TemperatureSensor;
 }
 
 /* ****************************************************************************************
  * Class/Interface/Struct/Enum
  */
-class ctrl::virt::TemperatureSensor : public lang::Object,
-                                      public ctrl::TemperatureSensor {
+class mframe::ctrl::virt::TemperatureSensor : public mframe::lang::Object,
+                                              public mframe::ctrl::TemperatureSensor {
   /* **************************************************************************************
    * Variable <Public>
    */
@@ -83,7 +81,7 @@ class ctrl::virt::TemperatureSensor : public lang::Object,
    */
 
   /* **************************************************************************************
-   * Public Method <Override> - ctrl::TemperatureSensor
+   * Public Method <Override> - mframe::ctrl::TemperatureSensor
    */
  public:
   /**
@@ -133,4 +131,4 @@ class ctrl::virt::TemperatureSensor : public lang::Object,
  * End of file
  */
 
-#endif /* MCUF_9CBF1345_9D97_4C6C_A466_2EF635815DB4 */
+#endif /* MFRAME_9CBF1345_9D97_4C6C_A466_2EF635815DB4 */

@@ -1,18 +1,16 @@
 /**
  * Copyright (c) 2020 ZxyKira
  * All rights reserved.
- * 
+ *
  * SPDX-License-Identifier: MIT
  */
 
 /* ****************************************************************************************
  * Include
  */
-
-//-----------------------------------------------------------------------------------------
-
-//-----------------------------------------------------------------------------------------
 #include "./GeneralPin.h"
+
+//-----------------------------------------------------------------------------------------
 
 /* ****************************************************************************************
  * Macro
@@ -21,11 +19,9 @@
 /* ****************************************************************************************
  * Using
  */
+using mframe::ctrl::virt::GeneralPin;
 
 //-----------------------------------------------------------------------------------------
-
-//-----------------------------------------------------------------------------------------
-using ctrl::virt::GeneralPin;
 
 /* ****************************************************************************************
  * Variable <Static>
@@ -34,20 +30,20 @@ using ctrl::virt::GeneralPin;
 /* ****************************************************************************************
  * Construct Method
  */
- 
+
 //-----------------------------------------------------------------------------------------
-GeneralPin::GeneralPin(void){
+GeneralPin::GeneralPin(void) {
   this->mDir = 0;
   this->mValue = 0;
-  this->mGeneralPinMode = hal::GeneralPinMode::PUSH_PULL;
+  this->mGeneralPinMode = mframe::hal::GeneralPinMode::PUSH_PULL;
   return;
 }
 
 //-----------------------------------------------------------------------------------------
-GeneralPin::~GeneralPin(void){
+GeneralPin::~GeneralPin(void) {
   this->mDir = 0;
   this->mValue = 0;
-  this->mGeneralPinMode = hal::GeneralPinMode::PUSH_PULL;
+  this->mGeneralPinMode = mframe::hal::GeneralPinMode::PUSH_PULL;
   return;
 }
 /* ****************************************************************************************
@@ -63,53 +59,53 @@ GeneralPin::~GeneralPin(void){
  */
 
 //-----------------------------------------------------------------------------------------
-bool GeneralPin::getDir(void){
+bool GeneralPin::getDir(void) {
   return this->mDir;
 }
 
 //-----------------------------------------------------------------------------------------
-void GeneralPin::setDir(bool dir){
+void GeneralPin::setDir(bool dir) {
   this->mDir = dir;
 }
 
 //-----------------------------------------------------------------------------------------
-hal::GeneralPinMode GeneralPin::getPinMode(void){
+mframe::hal::GeneralPinMode GeneralPin::getPinMode(void) {
   return this->mGeneralPinMode;
 }
 
 //-----------------------------------------------------------------------------------------
-hal::GeneralPinMode GeneralPin::setPinMode(hal::GeneralPinMode mode){
+mframe::hal::GeneralPinMode GeneralPin::setPinMode(mframe::hal::GeneralPinMode mode) {
   this->mGeneralPinMode = mode;
   return this->mGeneralPinMode;
-} 
+}
 
 //-----------------------------------------------------------------------------------------
-void GeneralPin::setHigh(void){
+void GeneralPin::setHigh(void) {
   this->setValue(true);
   return;
 }
 
 //-----------------------------------------------------------------------------------------
-void GeneralPin::setInput(void){
+void GeneralPin::setInput(void) {
   this->setDir(false);
   return;
 }
 
 //-----------------------------------------------------------------------------------------
-void GeneralPin::setLow(void){
+void GeneralPin::setLow(void) {
   this->setValue(false);
   return;
 }
 
 //-----------------------------------------------------------------------------------------
-void GeneralPin::setOutput(void){
+void GeneralPin::setOutput(void) {
   this->setDir(true);
   return;
 }
 
 //-----------------------------------------------------------------------------------------
-void GeneralPin::setToggle(void){
-  if(this->getDir() == false)
+void GeneralPin::setToggle(void) {
+  if (this->getDir() == false)
     return;
 
   this->setValue(!this->getValue());
@@ -117,13 +113,13 @@ void GeneralPin::setToggle(void){
 }
 
 //-----------------------------------------------------------------------------------------
-bool GeneralPin::getValue(void){
+bool GeneralPin::getValue(void) {
   return this->mValue;
 }
 
 //-----------------------------------------------------------------------------------------
-void GeneralPin::setValue(bool level){
-  if(this->getDir() == false)
+void GeneralPin::setValue(bool level) {
+  if (this->getDir() == false)
     return;
 
   this->mValue = getValue();
@@ -136,15 +132,15 @@ void GeneralPin::setValue(bool level){
 
 /**
  * @brief Set the Input Value object
- * 
- * @param level 
- * @return true 
- * @return false 
+ *
+ * @param level
+ * @return true
+ * @return false
  */
-bool GeneralPin::setInputValue(bool level){
-  if(this->getDir() == true)
+bool GeneralPin::setInputValue(bool level) {
+  if (this->getDir() == true)
     return false;
-  
+
   this->mValue = level;
   return true;
 }

@@ -1,18 +1,16 @@
 /**
  * Copyright (c) 2020 ZxyKira
  * All rights reserved.
- * 
+ *
  * SPDX-License-Identifier: MIT
  */
 
 /* ****************************************************************************************
  * Include
  */
-
-//-----------------------------------------------------------------------------------------
-
-//-----------------------------------------------------------------------------------------
 #include "./TemperatureSensor.h"
+
+//-----------------------------------------------------------------------------------------
 
 /* ****************************************************************************************
  * Macro
@@ -21,11 +19,9 @@
 /* ****************************************************************************************
  * Using
  */
+using mframe::ctrl::virt::TemperatureSensor;
 
 //-----------------------------------------------------------------------------------------
-
-//-----------------------------------------------------------------------------------------
-using ctrl::virt::TemperatureSensor;
 
 /* ****************************************************************************************
  * Variable <Static>
@@ -34,21 +30,21 @@ using ctrl::virt::TemperatureSensor;
 /* ****************************************************************************************
  * Construct Method
  */
- 
+
 //-----------------------------------------------------------------------------------------
-TemperatureSensor::TemperatureSensor(void){
+TemperatureSensor::TemperatureSensor(void) {
   this->mValue = 25.0f;
   return;
 }
 
 //-----------------------------------------------------------------------------------------
-TemperatureSensor::TemperatureSensor(float value){
+TemperatureSensor::TemperatureSensor(float value) {
   this->mValue = value;
   return;
 }
 
 //-----------------------------------------------------------------------------------------
-TemperatureSensor::~TemperatureSensor(void){
+TemperatureSensor::~TemperatureSensor(void) {
   return;
 }
 
@@ -61,11 +57,11 @@ TemperatureSensor::~TemperatureSensor(void){
  */
 
 /* ****************************************************************************************
- * Public Method <Override> - ctrl::TemperatureSensor
+ * Public Method <Override> - mframe::ctrl::TemperatureSensor
  */
 
 //-----------------------------------------------------------------------------------------
-float TemperatureSensor::getCelsius(void){
+float TemperatureSensor::getCelsius(void) {
   return this->mValue;
 }
 
@@ -74,7 +70,7 @@ float TemperatureSensor::getCelsius(void){
  */
 
 //-----------------------------------------------------------------------------------------
-float TemperatureSensor::setCelsius(float value){
+float TemperatureSensor::setCelsius(float value) {
   this->mValue = value;
   return this->getCelsius();
 }

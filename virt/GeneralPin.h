@@ -12,23 +12,21 @@
  */
 
 //-----------------------------------------------------------------------------------------
-#include "hal/package-info.h"
-#include "lang/package-info.h"
-
-//-----------------------------------------------------------------------------------------
+#include "./../../hal/GeneralPin.h"
+#include "./../../lang/Object.h"
 
 /* ****************************************************************************************
  * Namespace
  */
-namespace ctrl::virt {
+namespace mframe::ctrl::virt {
   class GeneralPin;
 }
 
 /* ****************************************************************************************
  * Class/Interface/Struct/Enum
  */
-class ctrl::virt::GeneralPin : public lang::Object,
-                               public hal::GeneralPin {
+class mframe::ctrl::virt::GeneralPin : public mframe::lang::Object,
+                                       public mframe::hal::GeneralPin {
   /* **************************************************************************************
    * Variable <Public>
    */
@@ -43,7 +41,7 @@ class ctrl::virt::GeneralPin : public lang::Object,
  private:
   uint8_t mDir;
   uint8_t mValue;
-  hal::GeneralPinMode mGeneralPinMode;
+  mframe::hal::GeneralPinMode mGeneralPinMode;
 
   /* **************************************************************************************
    * Abstract method <Public>
@@ -99,9 +97,9 @@ class ctrl::virt::GeneralPin : public lang::Object,
   /**
    * @brief
    *
-   * @return hal::GeneralPinMode
+   * @return mframe::hal::GeneralPinMode
    */
-  virtual hal::GeneralPinMode getPinMode(void) override;
+  virtual mframe::hal::GeneralPinMode getPinMode(void) override;
 
   /**
    * @brief
@@ -110,7 +108,7 @@ class ctrl::virt::GeneralPin : public lang::Object,
    * @return true
    * @return false
    */
-  virtual hal::GeneralPinMode setPinMode(hal::GeneralPinMode mode) override;
+  virtual mframe::hal::GeneralPinMode setPinMode(mframe::hal::GeneralPinMode mode) override;
 
   /**
    * @brief Set the High object

@@ -8,11 +8,9 @@
 /* ****************************************************************************************
  * Include
  */
-
-//-----------------------------------------------------------------------------------------
-
-//-----------------------------------------------------------------------------------------
 #include "./SerialPort.h"
+
+//-----------------------------------------------------------------------------------------
 
 /* ****************************************************************************************
  * Macro
@@ -21,13 +19,11 @@
 /* ****************************************************************************************
  * Using
  */
+using mframe::ctrl::SerialPort;
 
 //-----------------------------------------------------------------------------------------
-using io::InputStream;
-using io::OutputStream;
-
-//-----------------------------------------------------------------------------------------
-using ctrl::SerialPort;
+using mframe::io::InputStream;
+using mframe::io::OutputStream;
 
 /* ****************************************************************************************
  * Variable <Static>
@@ -36,11 +32,11 @@ using ctrl::SerialPort;
 /* ****************************************************************************************
  * Construct Method
  */
- 
+
 //-----------------------------------------------------------------------------------------
-SerialPort::SerialPort(hal::usart::USART& base) : mBase(base),
-                                                  mSerialPortInputStream(base),
-                                                  mSerialPortOutputStream(base) {
+SerialPort::SerialPort(mframe::hal::usart::USART& base) : mBase(base),
+                                                          mSerialPortInputStream(base),
+                                                          mSerialPortOutputStream(base) {
   return;
 }
 
@@ -59,7 +55,7 @@ SerialPort::~SerialPort(void) {
  */
 
 /* ****************************************************************************************
- * Public Method <Override> - lang::Closeable
+ * Public Method <Override> - mframe::lang::Closeable
  */
 
 //-----------------------------------------------------------------------------------------
@@ -78,7 +74,7 @@ bool SerialPort::isOpen(void) {
  */
 
 //-----------------------------------------------------------------------------------------
-bool SerialPort::open(void){
+bool SerialPort::open(void) {
   return this->mBase.init();
 }
 
@@ -92,14 +88,13 @@ uint32_t SerialPort::getBaudrate(void) {
   return this->mBase.getBaudrate();
 }
 
-
 //-----------------------------------------------------------------------------------------
-OutputStream& SerialPort::getOutputStream(void){
+OutputStream& SerialPort::getOutputStream(void) {
   return this->mSerialPortOutputStream;
 }
 
 //-----------------------------------------------------------------------------------------
-InputStream& SerialPort::getInputStream(void){
+InputStream& SerialPort::getInputStream(void) {
   return this->mSerialPortInputStream;
 }
 

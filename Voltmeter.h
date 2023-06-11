@@ -12,22 +12,20 @@
  */
 
 //-----------------------------------------------------------------------------------------
-#include "hal/AnalogInputPin.h"
-#include "lang/package-info.h"
-
-//-----------------------------------------------------------------------------------------
+#include "./../hal/AnalogInputPin.h"
+#include "./../lang/Object.h"
 
 /* ****************************************************************************************
  * Namespace
  */
-namespace ctrl {
+namespace mframe::ctrl {
   class Voltmeter;
 }
 
 /* ****************************************************************************************
  * Class/Interface/Struct/Enum
  */
-class ctrl::Voltmeter : public lang::Object {
+class mframe::ctrl::Voltmeter : public mframe::lang::Object {
   /* **************************************************************************************
    * Variable <Public>
    */
@@ -40,7 +38,7 @@ class ctrl::Voltmeter : public lang::Object {
    * Variable <Private>
    */
  private:
-  hal::AnalogInputPin& mAnalogPin;
+  mframe::hal::AnalogInputPin& mAnalogPin;
   float mVoltageMin;
   float mVoltageMax;
   float mVoltageDelta;
@@ -64,7 +62,7 @@ class ctrl::Voltmeter : public lang::Object {
    * @param voltmeterMin
    * @param voltmeterMax
    */
-  Voltmeter(hal::AnalogInputPin& analogPin, float voltmeterMin, float voltmeterMax);
+  Voltmeter(mframe::hal::AnalogInputPin& analogPin, float voltmeterMin, float voltmeterMax);
 
   /**
    * @brief Destroy the Voltmeter object

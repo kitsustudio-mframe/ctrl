@@ -8,11 +8,10 @@
 /* ****************************************************************************************
  * Include
  */
-
-//-----------------------------------------------------------------------------------------
-
-//-----------------------------------------------------------------------------------------
 #include "./Ammeter.h"
+
+//-----------------------------------------------------------------------------------------
+#include "mframe.h"
 
 /* ****************************************************************************************
  * Macro
@@ -23,11 +22,9 @@
  */
 
 //-----------------------------------------------------------------------------------------
-
-//-----------------------------------------------------------------------------------------
-using ctrl::Ammeter;
-using ctrl::Voltmeter;
-using hal::AnalogInputPin;
+using mframe::ctrl::Ammeter;
+using mframe::ctrl::Voltmeter;
+using mframe::hal::AnalogInputPin;
 
 /* ****************************************************************************************
  * Variable <Static>
@@ -36,7 +33,7 @@ using hal::AnalogInputPin;
 /* ****************************************************************************************
  * Construct Method
  */
- 
+
 //-----------------------------------------------------------------------------------------
 Ammeter::Ammeter(AnalogInputPin& analogPin, float voltageMin, float voltageMax, float amperDelta) : Voltmeter(analogPin, voltageMin, voltageMax) {
   this->mAmperDelta = amperDelta;
@@ -44,7 +41,7 @@ Ammeter::Ammeter(AnalogInputPin& analogPin, float voltageMin, float voltageMax, 
 }
 
 //-----------------------------------------------------------------------------------------
-Ammeter::Ammeter(const ctrl::Voltmeter& voltmeter, float amperDelta) : Voltmeter(voltmeter) {
+Ammeter::Ammeter(const Voltmeter& voltmeter, float amperDelta) : Voltmeter(voltmeter) {
   this->mAmperDelta = amperDelta;
   return;
 }

@@ -12,26 +12,22 @@
  */
 
 //-----------------------------------------------------------------------------------------
-#include "hal/package-info.h"
-#include "lang/package-info.h"
+#include "./../ctrl/SerialPortInputStream.h"
+#include "./../ctrl/SerialPortOutputStream.h"
 #include "./../io/package-info.h"
-
-//-----------------------------------------------------------------------------------------
-#include "./SerialPortInputStream.h"
-#include "./SerialPortOutputStream.h"
 
 /* ****************************************************************************************
  * Namespace
  */
-namespace ctrl {
+namespace mframe::ctrl {
   class SerialPort;
 }
 
 /* ****************************************************************************************
  * Class/Interface/Struct/Enum
  */
-class ctrl::SerialPort : public lang::Object,
-                         public io::Closeable{
+class mframe::ctrl::SerialPort : public mframe::lang::Object,
+                                 public mframe::io::Closeable {
   /* **************************************************************************************
    * Variable <Public>
    */
@@ -44,9 +40,9 @@ class ctrl::SerialPort : public lang::Object,
    * Variable <Private>
    */
  private:
-  hal::usart::USART& mBase;
-  ctrl::SerialPortInputStream mSerialPortInputStream;
-  ctrl::SerialPortOutputStream mSerialPortOutputStream;
+  mframe::hal::usart::USART& mBase;
+  mframe::ctrl::SerialPortInputStream mSerialPortInputStream;
+  mframe::ctrl::SerialPortOutputStream mSerialPortOutputStream;
 
   /* **************************************************************************************
    * Abstract method <Public>
@@ -65,7 +61,7 @@ class ctrl::SerialPort : public lang::Object,
    *
    * @param base
    */
-  SerialPort(hal::usart::USART& base);
+  SerialPort(mframe::hal::usart::USART& base);
 
   /**
    * @brief Destroy the Serial Port object
@@ -82,7 +78,7 @@ class ctrl::SerialPort : public lang::Object,
    */
 
   /* **************************************************************************************
-   * Public Method <Override> - lang::Closeable
+   * Public Method <Override> - mframe::lang::Closeable
    */
  public:
   virtual void close(void) override;
@@ -95,7 +91,7 @@ class ctrl::SerialPort : public lang::Object,
  public:
   /**
    * @brief 開啟通道
-   * 
+   *
    * @return true 成功開啟通道
    * @return false 通道開啟失敗，可能已經開啟或是硬體錯誤。
    */
@@ -119,16 +115,16 @@ class ctrl::SerialPort : public lang::Object,
   /**
    * @brief Get the Output Stream object
    *
-   * @return lang::OutputStream&
+   * @return mframe::lang::OutputStream&
    */
-  virtual io::OutputStream& getOutputStream(void);
+  virtual mframe::io::OutputStream& getOutputStream(void);
 
   /**
    * @brief Get the Input Stream object
    *
-   * @return lang::InputStream&
+   * @return mframe::lang::InputStream&
    */
-  virtual io::InputStream& getInputStream(void);
+  virtual mframe::io::InputStream& getInputStream(void);
 
   /* **************************************************************************************
    * Protected Method <Static>

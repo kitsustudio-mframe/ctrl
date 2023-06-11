@@ -8,11 +8,9 @@
 /* ****************************************************************************************
  * Include
  */
+#include "./SerialPortInputStream.h"
 
 //-----------------------------------------------------------------------------------------
-
-//-----------------------------------------------------------------------------------------
-#include "ctrl/SerialPortInputStream.h"
 
 /* ****************************************************************************************
  * Macro
@@ -21,11 +19,9 @@
 /* ****************************************************************************************
  * Using
  */
+using mframe::ctrl::SerialPortInputStream;
 
 //-----------------------------------------------------------------------------------------
-
-//-----------------------------------------------------------------------------------------
-using ctrl::SerialPortInputStream;
 
 /* ****************************************************************************************
  * Variable <Static>
@@ -36,7 +32,7 @@ using ctrl::SerialPortInputStream;
  */
 
 //-----------------------------------------------------------------------------------------
-SerialPortInputStream::SerialPortInputStream(hal::usart::USART& base) : mBase(base) {
+SerialPortInputStream::SerialPortInputStream(mframe::hal::usart::USART& base) : mBase(base) {
   this->mBase.setEventReceiver(this);
   return;
 }
@@ -62,22 +58,21 @@ SerialPortInputStream::~SerialPortInputStream(void) {
  */
 
 //-----------------------------------------------------------------------------------------
-bool SerialPortInputStream::onUartReceiver(const uint8_t data){
-if (this->mWriteBuffer == nullptr)
+bool SerialPortInputStream::onUartReceiver(const uint8_t data) {
+  if (this->mWriteBuffer == nullptr)
     return false;
 
   int result = this->mWriteBuffer->putByte(reinterpret_cast<const char&>(data));
 
-  if(result >= 0)
+  if (result >= 0)
     ++this->mResult;
 
-  if(result <= 0){
+  if (result <= 0) {
     this->execute();
     return false;
 
-  }else{
+  } else {
     return true;
-
   }
 }
 
@@ -94,7 +89,7 @@ if (this->mWriteBuffer == nullptr)
  */
 
 //-----------------------------------------------------------------------------------------
-void SerialPortInputStream::onReadEvent(void){
+void SerialPortInputStream::onReadEvent(void) {
   this->mBase.beginReceiver(true);
   return;
 }

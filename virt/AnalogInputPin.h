@@ -4,30 +4,28 @@
  *
  * SPDX-License-Identifier: MIT
  */
-#ifndef MCUF_5D254320_94DB_4B27_879F_9BDACF1C3A0E
-#define MCUF_5D254320_94DB_4B27_879F_9BDACF1C3A0E
+#ifndef MFRAME_5D254320_94DB_4B27_879F_9BDACF1C3A0E
+#define MFRAME_5D254320_94DB_4B27_879F_9BDACF1C3A0E
 
 /* ****************************************************************************************
  * Include
  */
 
 //-----------------------------------------------------------------------------------------
-#include "hal/package-info.h"
-#include "lang/package-info.h"
-
-//-----------------------------------------------------------------------------------------
+#include "./../../hal/AnalogInputPin.h"
+#include "./../../lang/Object.h"
 
 /* ****************************************************************************************
  * Namespace
  */
-namespace ctrl::virt {
+namespace mframe::ctrl::virt {
   class AnalogInputPin;
 }
 
 /* ****************************************************************************************
  * Class/Interface/Struct/Enum
  */
-class ctrl::virt::AnalogInputPin : public lang::Object, public hal::AnalogInputPin {
+class mframe::ctrl::virt::AnalogInputPin : public mframe::lang::Object, public mframe::hal::AnalogInputPin {
   /* **************************************************************************************
    * Variable <Public>
    */
@@ -76,7 +74,7 @@ class ctrl::virt::AnalogInputPin : public lang::Object, public hal::AnalogInputP
    */
 
   /* **************************************************************************************
-   * Public Method <Override> - hal::AnalogInputPin
+   * Public Method <Override> - mframe::hal::AnalogInputPin
    */
  public:
   /**
@@ -140,4 +138,4 @@ class ctrl::virt::AnalogInputPin : public lang::Object, public hal::AnalogInputP
  * End of file
  */
 
-#endif /* MCUF_5D254320_94DB_4B27_879F_9BDACF1C3A0E */
+#endif /* MFRAME_5D254320_94DB_4B27_879F_9BDACF1C3A0E */

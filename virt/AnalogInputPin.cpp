@@ -1,18 +1,16 @@
 /**
  * Copyright (c) 2020 ZxyKira
  * All rights reserved.
- * 
+ *
  * SPDX-License-Identifier: MIT
  */
 
 /* ****************************************************************************************
  * Include
  */
-
-//-----------------------------------------------------------------------------------------
-
-//-----------------------------------------------------------------------------------------
 #include "./AnalogInputPin.h"
+
+//-----------------------------------------------------------------------------------------
 
 /* ****************************************************************************************
  * Macro
@@ -21,11 +19,9 @@
 /* ****************************************************************************************
  * Using
  */
+using mframe::ctrl::virt::AnalogInputPin;
 
 //-----------------------------------------------------------------------------------------
-
-//-----------------------------------------------------------------------------------------
-using ctrl::virt::AnalogInputPin;
 
 /* ****************************************************************************************
  * Variable <Static>
@@ -34,16 +30,16 @@ using ctrl::virt::AnalogInputPin;
 /* ****************************************************************************************
  * Construct Method
  */
- 
+
 //-----------------------------------------------------------------------------------------
-AnalogInputPin::AnalogInputPin(void){
+AnalogInputPin::AnalogInputPin(void) {
   this->mValue = 0;
   this->mLevel = 0;
   return;
 }
 
 //-----------------------------------------------------------------------------------------
-AnalogInputPin::~AnalogInputPin(void){
+AnalogInputPin::~AnalogInputPin(void) {
   this->mValue = 0;
   this->mLevel = 0;
   return;
@@ -58,16 +54,16 @@ AnalogInputPin::~AnalogInputPin(void){
  */
 
 /* ****************************************************************************************
- * Public Method <Override> - mcuf::hal::AnalogInputPin
+ * Public Method <Override> - mcuf::mframe::hal::AnalogInputPin
  */
 
 //-----------------------------------------------------------------------------------------
-uint32_t AnalogInputPin::convert(void){
+uint32_t AnalogInputPin::convert(void) {
   return this->mValue;
 }
 
 //-----------------------------------------------------------------------------------------
-uint32_t AnalogInputPin::getConvertLevel(void){
+uint32_t AnalogInputPin::getConvertLevel(void) {
   return this->mLevel;
 }
 
@@ -76,18 +72,18 @@ uint32_t AnalogInputPin::getConvertLevel(void){
  */
 
 //-----------------------------------------------------------------------------------------
-void AnalogInputPin::setValue(uint32_t value){
-  if(value > this->mLevel)
+void AnalogInputPin::setValue(uint32_t value) {
+  if (value > this->mLevel)
     value = this->mLevel;
-  
+
   this->mValue = value;
   return;
 }
 
 //-----------------------------------------------------------------------------------------
-void AnalogInputPin::setConvertLevel(uint32_t level){
+void AnalogInputPin::setConvertLevel(uint32_t level) {
   this->mLevel = level;
-  if(this->mValue > this->mLevel)
+  if (this->mValue > this->mLevel)
     this->mValue = this->mLevel;
 
   return;

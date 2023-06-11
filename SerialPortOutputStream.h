@@ -12,23 +12,21 @@
  */
 
 //-----------------------------------------------------------------------------------------
-#include "hal/package-info.h"
-#include "lang/package-info.h"
-
-//-----------------------------------------------------------------------------------------
+#include "./../hal/usart/USART.h"
+#include "./../io/OutputStream.h"
 
 /* ****************************************************************************************
  * Namespace
  */
-namespace ctrl {
+namespace mframe::ctrl {
   class SerialPortOutputStream;
 }
 
 /* ****************************************************************************************
  * Class/Interface/Struct/Enum
  */
-class ctrl::SerialPortOutputStream : public io::OutputStream,
-                                     public hal::usart::EventTransfer {
+class mframe::ctrl::SerialPortOutputStream : public mframe::io::OutputStream,
+                                             public mframe::hal::usart::EventTransfer {
   /* **************************************************************************************
    * Variable <Public>
    */
@@ -41,7 +39,7 @@ class ctrl::SerialPortOutputStream : public io::OutputStream,
    * Variable <Private>
    */
  private:
-  hal::usart::USART& mBase;
+  mframe::hal::usart::USART& mBase;
 
   /* **************************************************************************************
    * Abstract method <Public>
@@ -60,7 +58,7 @@ class ctrl::SerialPortOutputStream : public io::OutputStream,
    *
    * @param base
    */
-  SerialPortOutputStream(hal::usart::USART& base);
+  SerialPortOutputStream(mframe::hal::usart::USART& base);
 
   /**
    * @brief Destroy the Serial Port Output Stream object
@@ -77,7 +75,7 @@ class ctrl::SerialPortOutputStream : public io::OutputStream,
    */
 
   /* **************************************************************************************
-   * Public Method <Override> - hal::usart::EventTransfer
+   * Public Method <Override> - mframe::hal::usart::EventTransfer
    */
  public:
   virtual bool onUartTransfer(uint8_t& data) override;

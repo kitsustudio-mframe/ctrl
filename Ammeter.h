@@ -12,22 +12,20 @@
  */
 
 //-----------------------------------------------------------------------------------------
-#include "lang/package-info.h"
-
-//-----------------------------------------------------------------------------------------
-#include "./Voltmeter.h"
+#include "./../ctrl/Voltmeter.h"
+#include "./../lang/Interface.h"
 
 /* ****************************************************************************************
  * Namespace
  */
-namespace ctrl {
+namespace mframe::ctrl {
   class Ammeter;
 }
 
 /* ****************************************************************************************
  * Class/Interface/Struct/Enum
  */
-class ctrl::Ammeter : public ctrl::Voltmeter {
+class mframe::ctrl::Ammeter : public mframe::ctrl::Voltmeter {
   /* **************************************************************************************
    * Variable <Public>
    */
@@ -62,7 +60,7 @@ class ctrl::Ammeter : public ctrl::Voltmeter {
    * @param voltageMax
    * @param amperDelta 1V/Amper
    */
-  Ammeter(hal::AnalogInputPin& analogPin, float voltageMin, float voltageMax, float amperDelta);
+  Ammeter(mframe::hal::AnalogInputPin& analogPin, float voltageMin, float voltageMax, float amperDelta);
 
   /**
    * @brief Construct a new Ammeter object
@@ -70,7 +68,7 @@ class ctrl::Ammeter : public ctrl::Voltmeter {
    * @param voltmeter
    * @param amperDelta
    */
-  Ammeter(const ctrl::Voltmeter& voltmeter, float amperDelta);
+  Ammeter(const mframe::ctrl::Voltmeter& voltmeter, float amperDelta);
 
   /**
    * @brief Destroy the Ammeter object

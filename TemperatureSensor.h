@@ -12,21 +12,19 @@
  */
 
 //-----------------------------------------------------------------------------------------
-#include "lang/package-info.h"
-
-//-----------------------------------------------------------------------------------------
+#include "./../lang/Interface.h"
 
 /* ****************************************************************************************
  * Namespace
  */
-namespace ctrl {
+namespace mframe::ctrl {
   struct TemperatureSensor;
 }
 
 /* ****************************************************************************************
  * Class/Interface/Struct/Enum
  */
-struct ctrl::TemperatureSensor : public virtual lang::Interface {
+struct mframe::ctrl::TemperatureSensor : public virtual mframe::lang::Interface {
   /* **************************************************************************************
    * Method
    */
