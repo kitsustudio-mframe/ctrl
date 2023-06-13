@@ -63,7 +63,7 @@ bool SerialPortOutputStream::onUartTransfer(uint8_t& data) {
   if (this->mReadBuffer == nullptr)
     return false;
 
-  int result = this->mReadBuffer->pollByte(reinterpret_cast<char&>(data));
+  int result = this->mReadBuffer->pollByte(reinterpret_cast<char&>(data), false);
 
   if (result >= 0) {
     ++this->mResult;
